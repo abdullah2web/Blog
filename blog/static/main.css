@@ -1,0 +1,8 @@
+/* Custom CSS */
+a {
+    text-decoration: none;
+    color: blue;
+}
+.active {
+    color: green;
+}

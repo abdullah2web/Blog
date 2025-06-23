@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <section>
+        <form method="POST" action="">
+            <div>
+                {{ form.hidden_tag() }}
+                <h3>Reset Password</h3>
+            </div>
+
+            <div>
+                {% if form.password.errors %}
+                {{ form.password(placeholder="Password") }}
+                <div>
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.password(placeholder="Password") }}
+                {% endif %}
+            </div>
+
+            <div>
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password(placeholder="Confirm Password") }}
+                <div>
+                    {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.confirm_password(placeholder="Confirm Password") }}
+                {% endif %}
+            </div>
+            
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </section>
+
+{% endblock content %}

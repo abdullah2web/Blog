@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <section>
+        <form method="POST" action="">
+            <div>
+                <h3>New Post</h3>
+                {{ form.hidden_tag() }}
+            </div>
+
+            <div>
+                {% if form.title.errors %}
+                    {{ form.title(placeholder="Title") }}
+                    <div>
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(placeholder="Title") }}
+                {% endif %}
+            </div>
+
+            <div>
+                {% if form.content.errors %}
+                    {{ form.content(placeholder="Content") }}
+                    <div>
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(placeholder="Content") }}
+                {% endif %}
+            </div>
+
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form> 
+    </section>
+
+{% endblock content %}

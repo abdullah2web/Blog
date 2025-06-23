@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <section>
+        <form method="POST" action="">
+            <div>
+                <h3>Reset Password</h3>
+                {{ form.hidden_tag() }}
+            </div>
+
+            <div>
+                {% if form.email.errors %}
+                {{ form.email(placeholder="Email") }}
+                <div>
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.email(placeholder="Email") }}
+                {% endif %}
+            </div>
+            
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </section>
+
+{% endblock content %}
